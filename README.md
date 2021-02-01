@@ -1,21 +1,8 @@
 # Automation Template
 
-## Setup (with MacPorts)
-
-1. sudo xcode-select —install
-2. restart terminal
-3. sudo port -v selfupdate
-4. sudo port install python37
-5. cd to project root and: virtualenv -p python3.7 venv
-6. source venv/bin/activate 
-7. pip install -r requirements.txt
-8. add chrome and firefox webdrivers: 
-    - Chrome: https://sites.google.com/a/chromium.org/chromedriver/home
-    - Firefox: TODO
-
 ## Setup (with Homebrew)
 
-On a MacBook from Big Health, with [Homebrew](https://brew.sh) installed,
+On a MacBook, with [Homebrew](https://brew.sh) installed,
 perform these steps:
 
 ```sh
@@ -104,5 +91,3 @@ The browser can be configured in `tests/config.json` too:
   "wait_time": 30
 }
 ```
-
-# automation-template
