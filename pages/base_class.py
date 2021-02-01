@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 import requests
+from datetime import datetime
 
 
 class BaseClass:
@@ -210,9 +211,19 @@ class BaseClass:
 
         return value
 
+    def generate_unique_email(self, user='user_account'):
+
+        unique_timestamp = datetime.timestamp(datetime.now())
+        unique_generated_email = ('{}+{}@sfappworks.com'.format(user, int(unique_timestamp)))
+
+        print('User email is:', unique_generated_email)
+
+        return unique_generated_email
+
 
 # this is a method that prints an error and also raise an exception to stop the execution of the test
 
 def print_error(message):
     print('\033[91m {} \033[0m'.format(message))
     raise
+
