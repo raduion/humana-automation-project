@@ -91,3 +91,4 @@ The browser can be configured in `tests/config.json` too:
   "wait_time": 30
 }
 ```
+# humana-automation-project
