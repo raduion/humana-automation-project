@@ -1,4 +1,4 @@
-# Automation Template
+# Humana Automation
 
 ## Setup (with Homebrew)
 
@@ -7,7 +7,7 @@ perform these steps:
 
 ```sh
 # 1. clone project repository with GitHub CLI [cli.github.com]
-$ gh repo clone https://github.com/raduion/automation-template.git
+$ gh repo clone gh repo clone raduion/humana-automation-project
 # 2. change to project root
 $ cd automation-template
 # 3. create a virtual environment for the project [docs.python.org/3/library/venv.html]
