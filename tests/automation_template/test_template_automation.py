@@ -1,5 +1,5 @@
 # this is a test template
-from pages.base_class import BaseClass
+from pages.base_page import BaseClass
 
 
 # ****** Test Title *****
