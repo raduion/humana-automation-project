@@ -5,7 +5,6 @@ import pytest
 from seleniumwire import webdriver
 from selenium.webdriver.chrome.options import Options
 
-
 CONFIG_PATH = os.path.dirname(os.path.realpath(__file__)) + '/config.json'
 DEFAULT_WAIT_TIME = 10
 SUPPORTED_BROWSERS = ['chrome', 'firefox', 'safari']
@@ -38,7 +37,7 @@ def config_browser(request, config):
 
     # Validate and return the browser choice from the given configuration
     if option is not None:
-        shorthand = { 'ch': 'chrome', 'ff': 'firefox', 'sf': 'safari' }
+        shorthand = {'ch': 'chrome', 'ff': 'firefox', 'sf': 'safari'}
         return option if option not in shorthand else shorthand[option]
     elif config['browser'] not in SUPPORTED_BROWSERS:
         raise Exception(f'"{config["browser"]}" is not a supported browser')
@@ -97,7 +96,7 @@ def browser(request, config_browser, config_wait_time):
         browser = webdriver.Chrome(
             executable_path=driver_path,
             options=options,
-            seleniumwire_options={ 'verify_ssl': False }
+            seleniumwire_options={'verify_ssl': False}
         )
         # browser.delete_all_cookies()
         # browser.maximize_window()
@@ -109,7 +108,7 @@ def browser(request, config_browser, config_wait_time):
 
         browser = webdriver.Firefox(executable_path=driver_path)
     elif config_browser == 'safari':
-        browser = webdriver.Safari(seleniumwire_options={ 'port': 0 })
+        browser = webdriver.Safari(seleniumwire_options={'port': 0})
     else:
         raise Exception(f'"{config_browser}" is not a supported browser')
 
@@ -121,4 +120,3 @@ def browser(request, config_browser, config_wait_time):
 
     # For clean-up, quit the driver
     browser.quit()
-
