@@ -27,9 +27,9 @@ class BaseElement:
         try:
             button = self.browser.find_element_by_css_selector(button_selector)
             button.click()
-            print('\033[92m Button was successfully clicked: "{}"\033[0m'.format(wait_element))
+            print('\033[92m Button was successfully clicked: "{}"\033[0m'.format(button_selector))
         except:
-            print_error(message='Button could not be clicked: "{}"'.format(wait_element))
+            print_error(message='Button could not be clicked: "{}"'.format(button_selector))
 
         WebDriverWait(self.browser, 10).until(EC.presence_of_element_located, wait_element)
 
