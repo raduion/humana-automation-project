@@ -2,6 +2,11 @@
 from pages.base_page import BasePage
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS
 from pymongo import MongoClient
+import json
+import time
+import requests
+
+from pages.sms_handler import SMSHandlers
 
 
 # ****** Test Title *****
@@ -9,17 +14,20 @@ from pymongo import MongoClient
 def test_template(browser):
     # 1. Go to the starting link and arrive at the landing page.
 
-    # base = BasePage(browser)
-    # base.load_url(subdomain='google.', second_level_domain='', subdirectory='', path='',
-    #               wait_element='input[type="text"]')
+    base = BasePage(browser)
+    sms = SMSHandlers()
 
-    Connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                             db_name='stars-gl-core-dev',
-                             collection_name='users')
-    Connect.get_database_names(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'])
-    Connect.get_collection_names(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                                 db_name='stars-gl-core-dev')
-    Connect.return_document(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                            db_name='stars-gl-core-dev',
-                            collection_name='users',
-                            record={'memberPersonalGeneratedKey': '2975043039904'})
+    base.load_url(subdomain='twilio-incoming-sms.', second_level_domain='herokuapp.',
+                  subdirectory='/message_history', path='',
+                  wait_element='div[id="json"]')
+    string = sms.get_message_text(index=-2)
+    url = sms.get_url_from_message(string)
+    base.load_url(scheme=url,
+                  subdomain='',
+                  top_level_domain='',
+                  second_level_domain='',
+                  subdirectory='',
+                  path='',
+                  wait_element='div[id="app"]')
+    long_url = sms.decode_url(url=url)
+    sms.get_token_from_url(long_url=long_url)
