@@ -89,6 +89,15 @@ class BasePage:
 
         return unique_generated_email
 
+    # this is a method that scrolls to the bottom of a page
+
+    def scroll_to_bottom(self):
+        try:
+            self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            print("Page was scrolled to the bottom")
+        except:
+            print_error(message="Page couldn't be scrolled")
+
 
 # this is a method that prints an error and also raise an exception to stop the execution of the test
 

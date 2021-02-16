@@ -1,4 +1,4 @@
-CSS_SELECTORS_ACTIVITIES = {
+CSS_SELECTORS_LIFEMAP = {
     # here we will add selectors used for the project
     # eg:
     # 'example_button' : 'div[class = 'sl-button-wrapper']'
@@ -27,7 +27,7 @@ CSS_SELECTORS_ACTIVITIES = {
     # this is the css selector used for the "take a Survey" wrapper
     "take_a_survey": "div[class='wrapper canvas__survey__wrapper']"
 }
-CSS_SELECTORS_CARDS = {
+CSS_SELECTORS_LIFEMAP_CARDS = {
     # these are the  css selectors used for activity cards
     "activity_card_1": "[aria-labelledby='name__1']",
     "activity_card_2": "[aria-labelledby='name__2']",

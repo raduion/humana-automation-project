@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 class BaseElement:
@@ -138,9 +139,22 @@ class BaseElement:
 
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable, wait_element)
 
+    # this is a method that scrolls to an element
+
+    def scroll_to_element(self, element):
+        try:
+            element_to_scroll = self.browser.find_element_by_css_selector(element)
+
+            actions = ActionChains(self.browser)
+            actions.move_to_element(element_to_scroll).perform()
+            print('Page scrolled to element({})'.format(element_to_scroll))
+        except:
+            print_error(message='Page could not be scrolled')
+
 
 # this is a method that prints an error and also raise an exception to stop the execution of the test
 
 def print_error(message):
     print('\033[91m {} \033[0m'.format(message))
     raise
+
