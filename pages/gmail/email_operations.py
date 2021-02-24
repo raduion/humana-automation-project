@@ -20,7 +20,7 @@ class EmailOperations:
         try:
             cmd = "{} {}".format(EMAIL_OPERATIONS_VARIABLES['path'], EMAIL_OPERATIONS_VARIABLES['script'])
             email_url = os.popen(cmd).read()
-            print('\033[92m Humana URL was found: "{}" \033[0m'.format(email_url))
+            print('\033[92m Humana URL was found: {} \033[0m'.format(email_url))
 
             return email_url
 
