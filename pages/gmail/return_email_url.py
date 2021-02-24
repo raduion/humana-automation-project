@@ -66,7 +66,6 @@ def main():
             sendgrid_url = re.sub(r'(upn3D)', r'upn=', sendgrid_url)
             humana_url = urllib.request.urlopen(sendgrid_url)
 
-            print(humana_url.geturl())
             return str(humana_url.geturl())
 
 
