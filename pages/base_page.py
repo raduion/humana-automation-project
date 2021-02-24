@@ -13,7 +13,7 @@ class BasePage:
     #
     # e.g:  https://site.example.com/software/index.html
 
-    def load_url(self, scheme='https://', subdomain='site.', second_level_domain='example.', top_level_domain='com.',
+    def load_url(self, scheme='https://', subdomain='site.', second_level_domain='example.', top_level_domain='com',
                  subdirectory='/software', path='/index.html', wait_element='css_wait_selector'):
 
         default_wait_time_for_load_seconds = 30
