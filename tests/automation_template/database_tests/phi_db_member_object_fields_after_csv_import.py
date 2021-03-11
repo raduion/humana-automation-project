@@ -3,7 +3,7 @@ from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, \
 from pages.utils import Utils
 
 
-def test_phi_db_user_object_fields_after_csv_import():
+def test_phi_db_member_object_fields_after_csv_import():
     # CSV with user data should be imported imported in PHI DB
 
     connect = Connect()

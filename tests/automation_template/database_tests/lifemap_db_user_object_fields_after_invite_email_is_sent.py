@@ -3,17 +3,17 @@ from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, \
 from pages.utils import Utils
 
 
-def test_phi_db_user_object_fields_after_csv_import():
-    # CSV with user data should be imported imported in PHI DB
+def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
+    # Invite Email sent. Object is created when the emails are sent
 
     connect = Connect()
     utils = Utils()
 
-    # 1. Reach 'Users' collection in PHI Db.
+    # 1. Reach 'users' collection in LifeMap Db.
     # expected results: Collection should be populated with data.
 
-    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                                                db_name='stars-gl-core-dev',
+    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db'],
+                                                db_name='stars-lm-dev',
                                                 collection_name='users')
     if users_collection:
         print('Collection is populated with data')
@@ -23,21 +23,13 @@ def test_phi_db_user_object_fields_after_csv_import():
     # 2. Reach a user object.
     # expected results: User object should be populated with data.
 
-    # we're getting the user object for user Radu 1 Ion
+    # we're getting the user object for user Radu 1
 
-    member_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                                          db_name='stars-gl-core-dev',
-                                          collection_name='members',
-                                          key=DATABASE_KEYS['firstName'],
-                                          unique_value='Radu 1')
-
-    user_id = member_object['userId']
-
-    user_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
-                                        db_name='stars-gl-core-dev',
+    user_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db'],
+                                        db_name='stars-lm-dev',
                                         collection_name='users',
-                                        key=DATABASE_KEYS['_id'],
-                                        unique_value=user_id)
+                                        key=DATABASE_KEYS['firstName'],
+                                        unique_value='Radu 1')
 
     # we're checking if the user object has data in it
 
@@ -47,20 +39,21 @@ def test_phi_db_user_object_fields_after_csv_import():
         print('User object is empty')
 
     # 3. Verify the user object fields and values.
-    # expected results: There should be 9 fields present:
+    # expected results: There should be 10 fields present:
     #
-    # 1. _id with an ObjectId value (e.g ObjectId("603e2b6dfa02bceb9fcf2c79")
-    # 2. memberPersonalGeneratedKey with a string value (e.g. 2975043039904)
-    # 3. token with a string value (e.g. 65f8a87f-77d0-4efb-92f5-251c29fcddc1)
-    # 4. emailToken with a string value (e.g. 41b372cd-3260-4f31-9468-0014f73793ef)
-    # 5. synced with a boolean value (e.g. true)
-    # 6. createdAt with a date value (e.g. 2021-03-02 12:11:25.871Z)
-    # 7. updatedAt with a date value (e.g. 2021-03-02 12:12:02.181Z)
-    # 8. __v version key with a Int32 value (e.g. 0)
-    # 9. exportUpdatedAt with a date value (e.g. 2021-03-02 12:11:30.345Z)
+    # 1. _id with an ObjectId value (e.g ObjectId("603e2b6ffa02bceb9fcf2c90")
+    # 2. userId with an string value (e.g 604a252880162a5838976e74)
+    # 3. token with a string value (e.g. 3367fa95-c961-4deb-b2bd-6ec83f329010)
+    # 4. emailToken with a string value - used in email for autologin (e.g. ade2f1ec-fb33-4a70-b89a-3b1145c354c1)
+    # 5. birthDate with a date value - user birthdate (e.g. 1949-04-11 00:00:00.000Z)
+    # 6. firstName with a string value -  user first name (e.g. Radu 1)
+    # 7. group with a string value (e.g. STATE OF KENTUCKY)
+    # 8. createdAt with a date value (e.g. 2021-03-02 12:11:27.065Z)
+    # 9. updatedAt with a date value (e.g. 2021-03-02 12:11:27.065Z)
+    # 10. __v version key with a Int32 value (e.g. 0)
 
-    expected_keys = ['_id', 'memberPersonalGeneratedKey', 'token', 'emailToken', 'synced', 'createdAt', 'updatedAt',
-                     '__v', 'exportUpdatedAt']
+    expected_keys = ['_id', 'userId', 'token', 'emailToken', 'birthDate', 'firstName', 'group',
+                     'createdAt', 'updatedAt', '__v']
 
     # we're comparing the number of expected fields with the one existing in the object
 
@@ -86,7 +79,7 @@ def test_phi_db_user_object_fields_after_csv_import():
                              key=DATABASE_KEYS['_id'],
                              data_type=DATABASE_DATA_TYPES['ObjectId'])
     utils.compare_data_types(dict_object=user_object,
-                             key=DATABASE_KEYS['memberPersonalGeneratedKey'],
+                             key=DATABASE_KEYS['userId'],
                              data_type=DATABASE_DATA_TYPES['string'])
     utils.compare_data_types(dict_object=user_object,
                              key=DATABASE_KEYS['token'],
@@ -95,8 +88,14 @@ def test_phi_db_user_object_fields_after_csv_import():
                              key=DATABASE_KEYS['emailToken'],
                              data_type=DATABASE_DATA_TYPES['string'])
     utils.compare_data_types(dict_object=user_object,
-                             key=DATABASE_KEYS['synced'],
-                             data_type=DATABASE_DATA_TYPES['boolean'])
+                             key=DATABASE_KEYS['birthDate'],
+                             data_type=DATABASE_DATA_TYPES['date'])
+    utils.compare_data_types(dict_object=user_object,
+                             key=DATABASE_KEYS['firstName'],
+                             data_type=DATABASE_DATA_TYPES['string'])
+    utils.compare_data_types(dict_object=user_object,
+                             key=DATABASE_KEYS['group'],
+                             data_type=DATABASE_DATA_TYPES['string'])
     utils.compare_data_types(dict_object=user_object,
                              key=DATABASE_KEYS['createdAt'],
                              data_type=DATABASE_DATA_TYPES['date'])
@@ -106,6 +105,3 @@ def test_phi_db_user_object_fields_after_csv_import():
     utils.compare_data_types(dict_object=user_object,
                              key=DATABASE_KEYS['__v'],
                              data_type=DATABASE_DATA_TYPES['int'])
-    utils.compare_data_types(dict_object=user_object,
-                             key=DATABASE_KEYS['exportUpdatedAt'],
-                             data_type=DATABASE_DATA_TYPES['date'])
