@@ -79,6 +79,21 @@ class BaseElement:
         except:
             print_error(message='Radio options could not be selected.')
 
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable, wait_element, )
+
+    # this method selects a radio option based on the desired position
+
+    def select_option_from_radio(self, radio_selector='css_selector', wait_element='css_wait_selector',
+                                 option_number=0):
+        try:
+
+            radio_option = self.browser.find_elements_by_css_selector(radio_selector)[option_number]
+            if radio_option.is_displayed():
+                radio_option.click()
+                print('\033[92m Option number {} was selected. \033[0m'.format(option_number))
+        except AttributeError:
+            print_error(message='Radio option could not be selected or does not exists.')
+
         WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable, wait_element)
 
     # this method sends a date of birth
@@ -157,4 +172,3 @@ class BaseElement:
 def print_error(message):
     print('\033[91m {} \033[0m'.format(message))
     raise
-

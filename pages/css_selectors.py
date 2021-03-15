@@ -1,10 +1,7 @@
-CSS_SELECTORS_LIFEMAP = {
+CSS_SELECTORS = {
     # here we will add selectors used for the project
     # eg:
     # 'example_button' : 'div[class = 'sl-button-wrapper']'
-
-    # this is the css selector used for the "Start my profile" button in the footer
-    "start_my_profile": "button[class='button button--arrow footer-purple__btn']",
 
     # this is the css selector used for the header "Back" button
     "header_back": "button[class='button button--back header__back']",
@@ -25,7 +22,13 @@ CSS_SELECTORS_LIFEMAP = {
     "day_input": "input[placeholder='DD']",
 
     # this is the css selector used for the "take a Survey" wrapper
-    "take_a_survey": "div[class='wrapper canvas__survey__wrapper']"
+    "take_a_survey": "div[class='wrapper canvas__survey__wrapper']",
+
+    # this is the css selector used for the text input field
+    "text_input": "textarea[class='inline-input']",
+
+    # this is the css selector used for the radio buttons options
+    "radio_option": "div[class='activity__button']"
 }
 CSS_SELECTORS_LIFEMAP_CARDS = {
     # these are the  css selectors used for activity cards

@@ -49,7 +49,7 @@ Stop test runs by pressing: **Control-C**
 
 ```sh
 # give a relative file path to the Python module containing the tests
-(venv) $ pytest tests/automation_template/test_template_automation.py
+(venv) $ pytest tests/database_tests/test_template_automation.py
 ```
 
 ### Multiple Tests with a Keyword
@@ -63,7 +63,7 @@ Stop test runs by pressing: **Control-C**
 
 ```sh
 # use :: to separate the file path from the test name
-(venv) $ tests/automation_template/test_template_automation.py::test_example
+(venv) $ tests/database_tests/test_template_automation.py::test_example
 ```
 
 ## Choosing A Browser
