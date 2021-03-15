@@ -37,6 +37,8 @@ DATABASE_KEYS = {
     'email': 'email',
     'group': 'group',
     'smoker': 'smoker',
+    'trackId': 'trackId',
+    'trackName': 'trackName'
 }
 
 DATABASE_DATA_TYPES = {
@@ -46,6 +48,10 @@ DATABASE_DATA_TYPES = {
     'date': datetime,
     'int': int,
     'array': list,
+}
+
+DATABASE_TRACK_IDS = {
+    'track 1': '0001'
 }
 
 
@@ -105,7 +111,7 @@ class Connect:
             print('List of collection documents could not be returned')
             raise
 
-    # this method returns a single documents in a provided collection
+    # this method returns a single document in a provided collection
 
     @staticmethod
     def return_document(connection_string, db_name, collection_name, record):

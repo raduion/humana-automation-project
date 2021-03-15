@@ -19,6 +19,7 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
         print('Collection is populated with data')
     else:
         print('Collection is empty')
+        raise AssertionError
 
     # 2. Reach a user object.
     # expected results: User object should be populated with data.
@@ -37,6 +38,8 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
         print('User object is populated with data')
     else:
         print('User object is empty')
+        raise AssertionError
+
 
     # 3. Verify the user object fields and values.
     # expected results: There should be 10 fields present:
@@ -61,6 +64,7 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
         print('\033[92m There are {} fields present in the user object \033[0m'.format(len(user_object)))
     else:
         print('\033[91m There are {} fields present in the user object \033[0m'.format(len(user_object)))
+        raise AssertionError
 
     # we're checking if all the expected keys are present
 
@@ -71,6 +75,7 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
             print('\033[92m {} key was found in the user object \033[0m'.format(i))
         else:
             print('\033[91m {} key not found in the user object \033[0m'.format(i))
+            raise AssertionError
 
     # we're comparing the expected data types saved in the object with the existing ones. at this moment we don't need
     # the actual values
