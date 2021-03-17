@@ -12,7 +12,7 @@ def test_phi_db_member_object_fields_after_csv_import():
     # 1. Reach 'Members' collection in PHI Db
     # expected results: Collection should be populated with data.
 
-    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
+    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
                                                 db_name='stars-gl-core-dev',
                                                 collection_name='members')
     if users_collection:
@@ -25,7 +25,7 @@ def test_phi_db_member_object_fields_after_csv_import():
 
     # we're getting the member object for user Radu 1 Ion
 
-    member_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
+    member_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
                                           db_name='stars-gl-core-dev',
                                           collection_name='members',
                                           key='firstName',

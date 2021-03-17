@@ -12,7 +12,7 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
     # 1. Reach 'users' collection in LifeMap Db.
     # expected results: Collection should be populated with data.
 
-    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db'],
+    users_collection = connect.return_documents(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db_dev'],
                                                 db_name='stars-lm-dev',
                                                 collection_name='users')
     if users_collection:
@@ -26,7 +26,7 @@ def test_lifemap_db_user_object_fields_after_invite_email_is_sent():
 
     # we're getting the user object for user Radu 1
 
-    user_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db'],
+    user_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['lifemap_db_dev'],
                                         db_name='stars-lm-dev',
                                         collection_name='users',
                                         key=DATABASE_KEYS['firstName'],

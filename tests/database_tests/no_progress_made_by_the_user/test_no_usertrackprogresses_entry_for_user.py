@@ -10,8 +10,9 @@ def test_no_usertrackprogresses_entry_for_user():
     # Collection should not have any data for the user
 
     # we're getting the usertracksprogresses object for user Radu 1 Ion
+    print(DATABASE_CONNECTION_STRINGS['phi_db_dev'])
 
-    member_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db'],
+    member_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
                                           db_name='stars-gl-core-dev',
                                           collection_name='usertracksprogresses',
                                           key='firstName',

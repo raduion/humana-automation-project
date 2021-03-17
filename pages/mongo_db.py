@@ -1,16 +1,19 @@
 from datetime import datetime
 import bson
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+dotenv_path = Path('/Users/radu/Documents/AutomationTemplate/Humana/humana-automation-project/.env')
+load_dotenv(dotenv_path=dotenv_path)
 
 DATABASE_CONNECTION_STRINGS = {
-    'phi_db_dev': 'mongodb+srv://stars-gl-core-dev:L0nd7l2NBtLHB4TE@stars-goodlife-phi-core.cyc7g.mongodb.net/stars-gl'
-                  '-core-dev?retryWrites=true&w=majority',
-    'lifemap_db_dev': 'mongodb+srv://stars-lm-dev:YCnKBZhqTcoqLT9C@stars-lifemap-dev.4crou.mongodb.net/stars-lm-dev'
-                      '?retryWrites=true&w=majority',
-    'phi_db_staging': 'mongodb+srv://stars-gl-core-staging:csq3Mx46RBlkrhXc@stars-goodlife-phi-core.33m2g.mongodb.net/'
-                      'stars-gl-core-staging?retryWrites=true&w=majority',
-    'lifemap_db_staging': 'mongodb+srv://stars-lm-staging:HZHh4o1WDOJqgAaV@stars-lifemap-staging.7dwdf.mongodb.net/'
-                          'stars-lm-staging?retryWrites=true&w=majority'
+    'phi_db_dev': os.getenv('PHI_DB_DEV'),
+    'lifemap_db_dev': os.getenv('LIFEMAP_DB_DEV'),
+    'phi_db_staging': os.getenv('PHI_DB_STAGING'),
+    'lifemap_db_staging': os.getenv('LIFEMAP_DB_STAGING')
+
 }
 
 DATABASE_KEYS = {
