@@ -27,8 +27,20 @@ CSS_SELECTORS = {
     # this is the css selector used for the text input field
     "text_input": "textarea[class='inline-input']",
 
+    # this is the css selector used for the phone number input field
+    "phone_input": "input[type='tel']",
+
     # this is the css selector used for the radio buttons options
-    "radio_option": "div[class='activity__button']"
+    "radio_option": "div[class='activity__button']",
+
+    # this is the css selector used for checkboxes
+    "checkbox": "div[class='checkbox__box']",
+
+    # this is the css selector used for the "Create My Profile" button
+    "create_my_profile_button": "button[type='submit']",
+
+    # this is the css selector used for the "Save and exit" header button
+    "header_save": "button[class='button header__save']"
 }
 CSS_SELECTORS_LIFEMAP_CARDS = {
     # these are the  css selectors used for activity cards

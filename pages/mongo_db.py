@@ -3,10 +3,14 @@ import bson
 from pymongo import MongoClient
 
 DATABASE_CONNECTION_STRINGS = {
-    'phi_db': 'mongodb+srv://stars-gl-core-dev:L0nd7l2NBtLHB4TE@stars-goodlife-phi-core.cyc7g.mongodb.net/stars-gl'
-              '-core-dev?retryWrites=true&w=majority',
-    'lifemap_db': 'mongodb+srv://stars-lm-dev:YCnKBZhqTcoqLT9C@stars-lifemap-dev.4crou.mongodb.net/stars-lm-dev'
-                  '?retryWrites=true&w=majority'
+    'phi_db_dev': 'mongodb+srv://stars-gl-core-dev:L0nd7l2NBtLHB4TE@stars-goodlife-phi-core.cyc7g.mongodb.net/stars-gl'
+                  '-core-dev?retryWrites=true&w=majority',
+    'lifemap_db_dev': 'mongodb+srv://stars-lm-dev:YCnKBZhqTcoqLT9C@stars-lifemap-dev.4crou.mongodb.net/stars-lm-dev'
+                      '?retryWrites=true&w=majority',
+    'phi_db_staging': 'mongodb+srv://stars-gl-core-staging:csq3Mx46RBlkrhXc@stars-goodlife-phi-core.33m2g.mongodb.net/'
+                      'stars-gl-core-staging?retryWrites=true&w=majority',
+    'lifemap_db_staging': 'mongodb+srv://stars-lm-staging:HZHh4o1WDOJqgAaV@stars-lifemap-staging.7dwdf.mongodb.net/'
+                          'stars-lm-staging?retryWrites=true&w=majority'
 }
 
 DATABASE_KEYS = {

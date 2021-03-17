@@ -1,4 +1,3 @@
-from pages import utils
 from pages.base_element import BaseElement
 from pages.base_page import BasePage
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, DATABASE_KEYS, DATABASE_DATA_TYPES
