@@ -62,3 +62,5 @@ def test_lifemap_script(browser):
                                  wait_element=CSS_SELECTORS['footer_next'])
     base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                               wait_element=CSS_SELECTORS['take_a_survey'])
+
+
