@@ -1,6 +1,6 @@
 from pages.base_element import BaseElement
 from pages.base_page import BasePage
-from pages.css_selectors import CSS_SELECTORS
+from pages.locators import CSS_SELECTORS
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, DATABASE_KEYS
 import time
 import datetime
