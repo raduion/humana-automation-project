@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
@@ -165,6 +166,41 @@ class BaseElement:
             print('Page scrolled to element({})'.format(element_to_scroll))
         except:
             print_error(message='Page could not be scrolled')
+
+    # this is a method that selects a card
+
+    def card_selector(self, card='card_xpath', wait_element='css_wait_selector'):
+        try:
+            button = self.browser.find_element(By.XPATH, card)
+            button.click()
+            print('\033[92m Button was successfully clicked: "{}"\033[0m'.format(card))
+        except:
+            print_error(message='Button could not be clicked: "{}"'.format(card))
+
+        WebDriverWait(self.browser, 10).until(EC.presence_of_element_located, wait_element)
+
+    # this is a method that custom selects cards
+
+    def custom_card_selector(self, main_card_type, secondary_card_type, wait_element, minimum_selection_number):
+        i = 0
+        for x in main_card_type:
+            i = i + 1
+
+            target = self.browser.find_element(By.XPATH, x)
+
+            self.browser.execute_script('arguments[0].scrollIntoView(true);', target)
+            self.card_selector(card=x,
+                               wait_element=wait_element)
+        if i < minimum_selection_number:
+            for x in secondary_card_type:
+                i = i + 1
+                target = self.browser.find_element(By.XPATH, x)
+
+                self.browser.execute_script('arguments[0].scrollIntoView(true);', target)
+                self.card_selector(card=x,
+                                   wait_element=wait_element)
+                if i == minimum_selection_number:
+                    break
 
 
 # this is a method that prints an error and also raise an exception to stop the execution of the test

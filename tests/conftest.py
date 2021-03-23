@@ -99,7 +99,7 @@ def browser(request, config_browser, config_wait_time):
             seleniumwire_options={'verify_ssl': False}
         )
         # browser.delete_all_cookies()
-        # browser.maximize_window()
+        browser.maximize_window()
     elif config_browser == 'firefox':
         if os.path.exists('/usr/local/bin/geckodriver'):
             driver_path = '/usr/local/bin/geckodriver'

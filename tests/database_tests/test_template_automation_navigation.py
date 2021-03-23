@@ -1,7 +1,7 @@
 # this is a test template
 from pages.base_page import BasePage
 from pages.base_element import BaseElement
-from pages.css_selectors import CSS_SELECTORS, CSS_SELECTORS_LIFEMAP_CARDS
+from pages.locators import CSS_SELECTORS, CSS_SELECTORS_LIFEMAP_CARDS
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS
 from pymongo import MongoClient
 
