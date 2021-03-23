@@ -211,10 +211,7 @@ CARDS_XPATHS = {
                                            "Friendships']/../.."
 }
 
-TYPE_0 = [CARDS_XPATHS["Breaking Molds"], CARDS_XPATHS["Excitement"], CARDS_XPATHS["Independence"],
-          CARDS_XPATHS["I Want to Be Challenged"], CARDS_XPATHS["I Want to Be Happy"],
-          CARDS_XPATHS["I Want to Be Healthy"], CARDS_XPATHS["I Want to Be Independent"],
-          CARDS_XPATHS["I Want to Feel Excited"]]
+
 
 TYPE_0_TALENTS = [CARDS_XPATHS["Breaking Molds"]]
 TYPE_0_PASSIONS = []
@@ -223,18 +220,6 @@ TYPE_0_VALUES = [CARDS_XPATHS["Excitement"], CARDS_XPATHS["Independence"]]
 TYPE_0_GOALS = [CARDS_XPATHS["I Want to Be Challenged"], CARDS_XPATHS["I Want to Be Happy"],
                 CARDS_XPATHS["I Want to Be Healthy"], CARDS_XPATHS["I Want to Be Independent"],
                 CARDS_XPATHS["I Want to Feel Excited"]]
-
-TYPE_1 = [CARDS_XPATHS["Adding Humor"], CARDS_XPATHS["Bringing Joy"], CARDS_XPATHS["Building Friendships"],
-          CARDS_XPATHS["Empowering Others"], CARDS_XPATHS["Getting Participation"], CARDS_XPATHS["Making Connections"],
-          CARDS_XPATHS["Motivating People"], CARDS_XPATHS["Resolving Disputes"], CARDS_XPATHS["Speaking to People"],
-          CARDS_XPATHS["Entertaining"], CARDS_XPATHS["Social Media"], CARDS_XPATHS["Socializing"],
-          CARDS_XPATHS["Children"], CARDS_XPATHS["My Community"], CARDS_XPATHS["My Country"],
-          CARDS_XPATHS["My Family"], CARDS_XPATHS["My Friends"], CARDS_XPATHS["My Team"], CARDS_XPATHS["Belonging"],
-          CARDS_XPATHS["Generosity"], CARDS_XPATHS["Loyalty"], CARDS_XPATHS["Relationships"],
-          CARDS_XPATHS["Tolerance"], CARDS_XPATHS["Trust"], CARDS_XPATHS["I Want to Be Appreciated"],
-          CARDS_XPATHS["I Want to Be Connected"], CARDS_XPATHS["I Want to Be Loved"],
-          CARDS_XPATHS["I Want to Be Supported"], CARDS_XPATHS["I Want to Feel Safe"],
-          CARDS_XPATHS["I Want to Have More Time with My Family"], CARDS_XPATHS["I Want to Have Stronger Friendships"]]
 
 TYPE_1_TALENTS = [CARDS_XPATHS["Adding Humor"], CARDS_XPATHS["Bringing Joy"], CARDS_XPATHS["Building Friendships"],
                   CARDS_XPATHS["Empowering Others"], CARDS_XPATHS["Getting Participation"],
@@ -250,17 +235,6 @@ TYPE_1_GOALS = [CARDS_XPATHS["I Want to Be Appreciated"], CARDS_XPATHS["I Want t
                 CARDS_XPATHS["I Want to Feel Safe"], CARDS_XPATHS["I Want to Have More Time with My Family"],
                 CARDS_XPATHS["I Want to Have Stronger Friendships"]]
 
-TYPE_2 = [CARDS_XPATHS["Caring for Others"], CARDS_XPATHS["Growing Things"], CARDS_XPATHS["Healing Others"],
-          CARDS_XPATHS["Overcoming Obstacles"], CARDS_XPATHS["Seeing the Big Picture"], CARDS_XPATHS["Animals"],
-          CARDS_XPATHS["Art"], CARDS_XPATHS["Food"], CARDS_XPATHS["Gardening"], CARDS_XPATHS["Music"],
-          CARDS_XPATHS["Photography"], CARDS_XPATHS["Spirituality"], CARDS_XPATHS["Volunteering"],
-          CARDS_XPATHS["Well-Being"], CARDS_XPATHS["My Personal Growth"], CARDS_XPATHS["My Spiritual Group"],
-          CARDS_XPATHS["The Less Fortunate"], CARDS_XPATHS["Compassion"], CARDS_XPATHS["Empathy"],
-          CARDS_XPATHS["Equality"], CARDS_XPATHS["Faith"], CARDS_XPATHS["Health"], CARDS_XPATHS["Honesty"],
-          CARDS_XPATHS["Peace"], CARDS_XPATHS["Security"], CARDS_XPATHS["Self-Discipline"],
-          CARDS_XPATHS["I Want to Be Calm"], CARDS_XPATHS["I Want to Be Purpose-Driven"],
-          CARDS_XPATHS["I Want to Feel in Control"], CARDS_XPATHS["I Want to Feel More Confident"],
-          CARDS_XPATHS["I Want to Feel More Joyful"], CARDS_XPATHS["I Want to Have More Time for Me"]]
 
 TYPE_2_TALENTS = [CARDS_XPATHS["Caring for Others"], CARDS_XPATHS["Growing Things"], CARDS_XPATHS["Healing Others"],
                   CARDS_XPATHS["Overcoming Obstacles"], CARDS_XPATHS["Seeing the Big Picture"]]
@@ -276,15 +250,6 @@ TYPE_2_GOALS = [CARDS_XPATHS["I Want to Be Calm"], CARDS_XPATHS["I Want to Be Pu
                 CARDS_XPATHS["I Want to Feel in Control"], CARDS_XPATHS["I Want to Feel More Confident"],
                 CARDS_XPATHS["I Want to Feel More Joyful"], CARDS_XPATHS["I Want to Have More Time for Me"]]
 
-TYPE_3 = [CARDS_XPATHS["Advancing Ideas"], CARDS_XPATHS["Analyzing Information"], CARDS_XPATHS["Creating Things"],
-          CARDS_XPATHS["Exploring the Way"], CARDS_XPATHS["Instructing People"],
-          CARDS_XPATHS["Making Sense of Numbers"], CARDS_XPATHS["Researching Things"],
-          CARDS_XPATHS["Solving Problems"], CARDS_XPATHS["Translating Things"], CARDS_XPATHS["Culture"],
-          CARDS_XPATHS["Education"], CARDS_XPATHS["Fashion"], CARDS_XPATHS["Finance"], CARDS_XPATHS["Literature"],
-          CARDS_XPATHS["Politics"], CARDS_XPATHS["Writing"], CARDS_XPATHS["Curiosity"], CARDS_XPATHS["Excellence"],
-          CARDS_XPATHS["Tradition"], CARDS_XPATHS["Wisdom"], CARDS_XPATHS["I Want to Be Creative"],
-          CARDS_XPATHS["I Want to Be Inventive"]]
-
 TYPE_3_TALENTS = [CARDS_XPATHS["Advancing Ideas"], CARDS_XPATHS["Analyzing Information"],
                   CARDS_XPATHS["Creating Things"], CARDS_XPATHS["Exploring the Way"],
                   CARDS_XPATHS["Instructing People"], CARDS_XPATHS["Making Sense of Numbers"],
@@ -297,15 +262,6 @@ TYPE_3_VALUES = [CARDS_XPATHS["Curiosity"], CARDS_XPATHS["Excellence"], CARDS_XP
                  CARDS_XPATHS["Wisdom"]]
 TYPE_3_GOALS = [CARDS_XPATHS["I Want to Be Creative"], CARDS_XPATHS["I Want to Be Inventive"]]
 
-TYPE_4 = [CARDS_XPATHS["Building Things"], CARDS_XPATHS["Fixing Things"], CARDS_XPATHS["Organizing Things"],
-          CARDS_XPATHS["Staying Active"], CARDS_XPATHS["Staying Current"], CARDS_XPATHS["Crafts"],
-          CARDS_XPATHS["Dance"], CARDS_XPATHS["Fitness"], CARDS_XPATHS["Homemaking"], CARDS_XPATHS["Outdoors"],
-          CARDS_XPATHS["Sports"], CARDS_XPATHS["Traveling"], CARDS_XPATHS["Work"], CARDS_XPATHS["My Clients"],
-          CARDS_XPATHS["My Work"], CARDS_XPATHS["The Environment"], CARDS_XPATHS["Commitment"],
-          CARDS_XPATHS["Consistency"], CARDS_XPATHS["Freedom"], CARDS_XPATHS["Leadership"], CARDS_XPATHS["Risk-Taking"],
-          CARDS_XPATHS["I Want to Be Active"], CARDS_XPATHS["I Want to Be Fulfilled"],
-          CARDS_XPATHS["I Want to Be Successful"], CARDS_XPATHS["I Want to Feel More Capable"],
-          CARDS_XPATHS["I Want to Feel More Energetic"]]
 
 TYPE_4_TALENTS = [CARDS_XPATHS["Building Things"], CARDS_XPATHS["Fixing Things"], CARDS_XPATHS["Organizing Things"],
                   CARDS_XPATHS["Staying Active"], CARDS_XPATHS["Staying Current"]]

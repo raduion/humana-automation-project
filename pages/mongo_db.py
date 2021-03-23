@@ -112,7 +112,6 @@ class Connect:
         try:
             for doc in my_collection:
                 my_documents.append(doc)
-            print('List of collection documents: {}'.format(my_documents))
             return my_documents
         except:
             print('List of collection documents could not be returned')
@@ -146,3 +145,17 @@ class Connect:
                     return my_item
         except AttributeError:
             print('Object could not be returned')
+
+    # this method returns all objects from the db based on a given unique key/value pair
+
+    @staticmethod
+    def return_objects(connection_string, db_name, collection_name, key, unique_value):
+        list_of_objects = Connect.return_documents(connection_string, db_name, collection_name)
+        objects = []
+        try:
+            for item in list_of_objects:
+                if item[key] == unique_value:
+                    objects.append(item)
+            return objects
+        except AttributeError:
+            print('Objects could not be returned')

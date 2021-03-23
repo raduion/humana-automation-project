@@ -27,7 +27,6 @@ class BasePage:
         print('\033[92m Reached {}{}{}{}{}{} URL. \033[0m'.format(scheme, subdomain, second_level_domain,
                                                                   top_level_domain, subdirectory, path))
 
-
     # this is a method that returns the response of a network call and bypass the login for a service call by setting
     # a temporary login cookie
 
@@ -105,4 +104,3 @@ class BasePage:
 def print_error(message):
     print('\033[91m {} \033[0m'.format(message))
     raise
-
