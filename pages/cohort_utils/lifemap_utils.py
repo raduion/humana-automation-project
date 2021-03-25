@@ -159,25 +159,25 @@ class LifeMapUtils:
 
     # this function compares trackID against expected data
 
-    @staticmethod
-    def track_id_checker(memberpersonalgeneratedkey, expected_track_id_value):
-        connect = Connect()
-        user_object = connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-                                            db_name='stars-gl-core-dev',
-                                            collection_name='members',
-                                            key=DATABASE_KEYS['memberPersonalGeneratedKey'],
-                                            unique_value=memberpersonalgeneratedkey)
-        object_list = connect.return_objects(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-                                             db_name='stars-gl-core-dev',
-                                             collection_name='usertracksprogresses',
-                                             key=DATABASE_KEYS['userId'],
-                                             unique_value=user_object['userId'])
-
-        if object_list[-1]['trackId'] == expected_track_id_value:
-            print('Track ID matches expected value: {}'.format(object_list[-1]['trackId']))
-        else:
-            print('\033[91m Track ID does not match expected value. \n expected: {} \n db_value: {} \033[0m'.
-                  format(expected_track_id_value, object_list[-1]['trackId']))
+    def track_id_checker(self, memberpersonalgeneratedkey, expected_track_id_value):
+        user_object = self.connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
+                                                 db_name='stars-gl-core-dev',
+                                                 collection_name='members',
+                                                 key=DATABASE_KEYS['memberPersonalGeneratedKey'],
+                                                 unique_value=memberpersonalgeneratedkey)
+        object_list = self.connect.return_objects(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
+                                                  db_name='stars-gl-core-dev',
+                                                  collection_name='usertracksprogresses',
+                                                  key=DATABASE_KEYS['userId'],
+                                                  unique_value=user_object['userId'])
+        i = 0
+        for x in object_list:
+            if x['trackId'] == expected_track_id_value:
+                i = i + 1
+                print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
+                      .format(i, expected_track_id_value, x['trackId']))
+        if i == 0:
+            print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
 
     # this method loads a LifeMap URL
 
