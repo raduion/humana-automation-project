@@ -177,7 +177,8 @@ class LifeMapUtils:
                 print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
                       .format(i, expected_track_id_value, x['trackId']))
         if i == 0:
-            print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
+            print('\033[91m Track IDs do not match expected value in any of the user objects: \n expected: {} '
+                  '\n found: {}. \033[0m'.format(expected_track_id_value, user_object[DATABASE_KEYS['userTracks']]))
 
     # this method loads a LifeMap URL
 

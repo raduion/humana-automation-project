@@ -35,8 +35,8 @@ class CohortLogic:
 
         time.sleep(wait_time)
 
-        self.wellness_utils.track_id_checker(memberpersonalgeneratedkey=memberpersonalgeneratedkey,
-                                             expected_track_id_value=second_track_id_value)
+        self.lifemap_utils.track_id_checker(memberpersonalgeneratedkey=memberpersonalgeneratedkey,
+                                            expected_track_id_value=second_track_id_value)
 
         self.browser.execute_script('window.localStorage.clear();')
         self.browser.delete_all_cookies()
@@ -49,3 +49,12 @@ class CohortLogic:
         time.sleep(240)
         self.track_003(memberpersonalgeneratedkey, first_track_id_value, wait_time, wellness_answer,
                        second_track_id_value)
+
+    def track_002_003_004(self, memberpersonalgeneratedkey, max_score, wait_time, first_track_id_value, wellness_answer,
+                          second_track_id_value, third_track_id_value):
+        self.track_002(memberpersonalgeneratedkey, max_score, wait_time, first_track_id_value)
+        time.sleep(240)
+        self.track_003(memberpersonalgeneratedkey, first_track_id_value, wait_time, wellness_answer,
+                       second_track_id_value)
+        time.sleep(600)
+        self.lifemap_utils.track_id_checker(memberpersonalgeneratedkey, third_track_id_value)

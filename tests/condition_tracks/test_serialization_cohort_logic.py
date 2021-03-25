@@ -31,12 +31,25 @@ COHORT_LOGIC_PARAMS_002 = {
 
 COHORT_LOGIC_PARAMS_002_003 = {
     'track_0002-01_0003-05': {
-        'memberpersonalgeneratedkey': "1000000000024",
+        'memberpersonalgeneratedkey': "1000000000021",
         'max_score': MAX_SCORE_VALUES['max_score_1'],
         'wait_time': 240,
         'first_track_id_value': '0002-01',
         'wellness_answer': WELLNESS_ANSWERS['Answer 1'],
         'second_track_id_value': '0003-05',
+    }
+
+}
+
+COHORT_LOGIC_PARAMS_002_003_004 = {
+    'track_0002-01_0003-05': {
+        'memberpersonalgeneratedkey': "1000000000021",
+        'max_score': MAX_SCORE_VALUES['max_score_1'],
+        'wait_time': 240,
+        'first_track_id_value': '0002-01',
+        'wellness_answer': WELLNESS_ANSWERS['Answer 1'],
+        'second_track_id_value': '0003-05',
+        'third_track_id_value': '0004-01'
     }
 
 }
@@ -58,3 +71,12 @@ def test_cohort_logic_002_003(browser, track=None):
 
     for x in COHORT_LOGIC_PARAMS_002_003:
         cohort.track_002_003(**track[x])
+
+
+def test_cohort_logic_002_003_004(browser, track=None):
+    if track is None:
+        track = COHORT_LOGIC_PARAMS_002_003_004
+    cohort = CohortLogic(browser)
+
+    for x in COHORT_LOGIC_PARAMS_002_003_004:
+        cohort.track_002_003_004(**track[x])

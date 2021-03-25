@@ -77,23 +77,25 @@ class WellnessUtils:
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS['footer_next'])
 
-    def track_id_checker(self, memberpersonalgeneratedkey, expected_track_id_value):
-        user_object = self.connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-                                                 db_name='stars-gl-core-dev',
-                                                 collection_name='members',
-                                                 key=DATABASE_KEYS['memberPersonalGeneratedKey'],
-                                                 unique_value=memberpersonalgeneratedkey)
-        object_list = self.connect.return_objects(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-                                                  db_name='stars-gl-core-dev',
-                                                  collection_name='usertracksprogresses',
-                                                  key=DATABASE_KEYS['userId'],
-                                                  unique_value=user_object['userId'])
-        i = 0
-        for x in object_list:
-            if x['trackId'] == expected_track_id_value:
-                i = i + 1
-                print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
-                      .format(i, expected_track_id_value, x['trackId']))
-        if i == 0:
-            print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
+    # already an instance of this in LifeMap Utils
+
+    # def track_id_checker(self, memberpersonalgeneratedkey, expected_track_id_value):
+    #     user_object = self.connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
+    #                                              db_name='stars-gl-core-dev',
+    #                                              collection_name='members',
+    #                                              key=DATABASE_KEYS['memberPersonalGeneratedKey'],
+    #                                              unique_value=memberpersonalgeneratedkey)
+    #     object_list = self.connect.return_objects(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
+    #                                               db_name='stars-gl-core-dev',
+    #                                               collection_name='usertracksprogresses',
+    #                                               key=DATABASE_KEYS['userId'],
+    #                                               unique_value=user_object['userId'])
+    #     i = 0
+    #     for x in object_list:
+    #         if x['trackId'] == expected_track_id_value:
+    #             i = i + 1
+    #             print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
+    #                   .format(i, expected_track_id_value, x['trackId']))
+    #     if i == 0:
+    #         print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
 
