@@ -211,8 +211,6 @@ CARDS_XPATHS = {
                                            "Friendships']/../.."
 }
 
-
-
 TYPE_0_TALENTS = [CARDS_XPATHS["Breaking Molds"]]
 TYPE_0_PASSIONS = []
 TYPE_0_IMPACTS = []
@@ -234,7 +232,6 @@ TYPE_1_GOALS = [CARDS_XPATHS["I Want to Be Appreciated"], CARDS_XPATHS["I Want t
                 CARDS_XPATHS["I Want to Be Loved"], CARDS_XPATHS["I Want to Be Supported"],
                 CARDS_XPATHS["I Want to Feel Safe"], CARDS_XPATHS["I Want to Have More Time with My Family"],
                 CARDS_XPATHS["I Want to Have Stronger Friendships"]]
-
 
 TYPE_2_TALENTS = [CARDS_XPATHS["Caring for Others"], CARDS_XPATHS["Growing Things"], CARDS_XPATHS["Healing Others"],
                   CARDS_XPATHS["Overcoming Obstacles"], CARDS_XPATHS["Seeing the Big Picture"]]
@@ -262,7 +259,6 @@ TYPE_3_VALUES = [CARDS_XPATHS["Curiosity"], CARDS_XPATHS["Excellence"], CARDS_XP
                  CARDS_XPATHS["Wisdom"]]
 TYPE_3_GOALS = [CARDS_XPATHS["I Want to Be Creative"], CARDS_XPATHS["I Want to Be Inventive"]]
 
-
 TYPE_4_TALENTS = [CARDS_XPATHS["Building Things"], CARDS_XPATHS["Fixing Things"], CARDS_XPATHS["Organizing Things"],
                   CARDS_XPATHS["Staying Active"], CARDS_XPATHS["Staying Current"]]
 TYPE_4_PASSIONS = [CARDS_XPATHS["Crafts"], CARDS_XPATHS["Dance"], CARDS_XPATHS["Fitness"], CARDS_XPATHS["Homemaking"],
@@ -273,3 +269,14 @@ TYPE_4_VALUES = [CARDS_XPATHS["Commitment"], CARDS_XPATHS["Consistency"], CARDS_
 TYPE_4_GOALS = [CARDS_XPATHS["I Want to Be Active"], CARDS_XPATHS["I Want to Be Fulfilled"],
                 CARDS_XPATHS["I Want to Be Successful"], CARDS_XPATHS["I Want to Feel More Capable"],
                 CARDS_XPATHS["I Want to Feel More Energetic"]]
+
+WELLNESS_CATEGORIES_CSS_SELECTORS = {
+    'Mental Health': "div[tabindex='2']",
+    'Healthy eating': "div[tabindex='3']",
+    'Social well-being': "div[tabindex='4']",
+    'Exercise': "div[tabindex='5']",
+    'Putting my talents to work': "div[tabindex='6']",
+    'I don"t have a goal yet': "div[tabindex='7']",
+    'None of these': "div[tabindex='8']",
+}
+
