@@ -72,6 +72,11 @@ class WellnessUtils:
         self.base_element.send_user_input(input_data='This is an automated answer for the first question',
                                           input_field=CSS_SELECTORS["text_input"],
                                           wait_element=CSS_SELECTORS['footer_next'])
+        if welness_activity_answer in [WELLNESS_ANSWERS['Answer 3'], WELLNESS_ANSWERS['Answer 4'],
+                                       WELLNESS_ANSWERS['Answer 5'], WELLNESS_ANSWERS['Answer 6'],
+                                       WELLNESS_ANSWERS['Answer 7']]:
+            self.base_page.scroll_to_bottom()
+            time.sleep(1)
         self.base_element.button_click(button_selector=welness_activity_answer,
                                        wait_element=CSS_SELECTORS['footer_next'])
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
@@ -98,4 +103,3 @@ class WellnessUtils:
     #                   .format(i, expected_track_id_value, x['trackId']))
     #     if i == 0:
     #         print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
-

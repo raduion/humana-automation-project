@@ -30,8 +30,16 @@ COHORT_LOGIC_PARAMS_002 = {
 }
 
 COHORT_LOGIC_PARAMS_002_003 = {
+    'track_0003-01': {
+        'memberpersonalgeneratedkey': "1000000000022",
+        'max_score': MAX_SCORE_VALUES['max_score_1'],
+        'wait_time': 240,
+        'first_track_id_value': '0002-01',
+        'wellness_answer': WELLNESS_ANSWERS['Answer 2'],
+        'second_track_id_value': '0003-01',
+    },
     'track_0002-01_0003-05': {
-        'memberpersonalgeneratedkey': "1000000000021",
+        'memberpersonalgeneratedkey': "1000000000022",
         'max_score': MAX_SCORE_VALUES['max_score_1'],
         'wait_time': 240,
         'first_track_id_value': '0002-01',
