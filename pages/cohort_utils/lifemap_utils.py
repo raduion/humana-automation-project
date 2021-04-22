@@ -8,6 +8,7 @@ from pages.locators import CSS_SELECTORS, CARDS_XPATHS, TYPE_1_TALENTS, TYPE_0_T
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, DATABASE_KEYS
 import time
 
+
 MAX_SCORE_VALUES = {
     'max_score_1': {
         'main_talents': TYPE_1_TALENTS,
@@ -73,85 +74,117 @@ class LifeMapUtils:
     def custom_score(self, main_talents, secondary_talents, main_passions, secondary_passions,
                      main_impacts, secondary_impacts, main_values, secondary_values, main_goals, secondary_goals):
 
+        print('User started LifeMap Card Sorting Activity')
+
         # start card sorting activity
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS['header_save'])
         # talents
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_talents,
                                                secondary_card_type=secondary_talents,
                                                minimum_selection_number=5,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS['header_save'])
 
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_talents,
                                                secondary_card_type=secondary_talents,
                                                minimum_selection_number=3,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
         # passions
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_passions,
                                                secondary_card_type=secondary_passions,
                                                minimum_selection_number=5,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_passions,
                                                secondary_card_type=secondary_passions,
                                                minimum_selection_number=3,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_2'])
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
         # impacts
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_impacts,
                                                secondary_card_type=secondary_impacts,
                                                minimum_selection_number=5,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_impacts,
                                                secondary_card_type=secondary_impacts,
                                                minimum_selection_number=3,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
         # values
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_values,
                                                secondary_card_type=secondary_values,
                                                minimum_selection_number=5,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_values,
                                                secondary_card_type=secondary_values,
                                                minimum_selection_number=3,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS['footer_next'])
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
         # goals
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_goals,
                                                secondary_card_type=secondary_goals,
                                                minimum_selection_number=5,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS_LIFEMAP_CARDS['activity_card_1'])
 
+        time.sleep(1)
         self.base_element.custom_card_selector(main_card_type=main_goals,
                                                secondary_card_type=secondary_goals,
                                                minimum_selection_number=3,
                                                wait_element=CSS_SELECTORS['header_save'])
+        time.sleep(1)
+
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_cards_next'],
                                        wait_element=CSS_SELECTORS['footer_next'])
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
@@ -160,6 +193,7 @@ class LifeMapUtils:
     # this function compares trackID against expected data
 
     def track_id_checker(self, memberpersonalgeneratedkey, expected_track_id_value):
+
         user_object = self.connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
                                                  db_name='stars-gl-core-dev',
                                                  collection_name='members',
@@ -174,11 +208,13 @@ class LifeMapUtils:
         for x in object_list:
             if x['trackId'] == expected_track_id_value:
                 i = i + 1
-                print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
-                      .format(i, expected_track_id_value, x['trackId']))
+                print('User received the correct Track ID. \n expected: {} \n found {}'
+                      .format(expected_track_id_value, x['trackId']))
+
         if i == 0:
             print('\033[91m Track IDs do not match expected value in any of the user objects: \n expected: {} '
                   '\n found: {}. \033[0m'.format(expected_track_id_value, user_object[DATABASE_KEYS['userTracks']]))
+            raise
 
     # this method loads a LifeMap URL
 
@@ -202,7 +238,7 @@ class LifeMapUtils:
 
         self.base_page.scroll_to_bottom()
 
-        time.sleep(1)
+        time.sleep(2)
 
         self.base_element.send_user_input(input_data=phone_number,
                                           input_field=CSS_SELECTORS["phone_input"],
@@ -217,7 +253,7 @@ class LifeMapUtils:
     def lifemap_dob_inputter(self, month, day, year):
 
         self.base_page.scroll_to_bottom()
-        time.sleep(1)
+        time.sleep(2)
         self.base_element.send_user_input(input_data=month,
                                           input_field=CSS_SELECTORS["month_input"],
                                           wait_element=CSS_SELECTORS['footer_next'])
@@ -230,3 +266,5 @@ class LifeMapUtils:
         time.sleep(1)
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS['take_a_survey'])
+        time.sleep(3)
+

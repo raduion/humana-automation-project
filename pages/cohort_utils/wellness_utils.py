@@ -1,17 +1,28 @@
 from pages.base_element import BaseElement
 from pages.base_page import BasePage
-from pages.locators import CSS_SELECTORS, WELLNESS_CATEGORIES_CSS_SELECTORS
+from pages.locators import CSS_SELECTORS, WELLNESS_CATEGORIES_CSS_SELECTORS_0002, WELLNESS_CATEGORIES_CSS_SELECTORS_0006
 from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS, DATABASE_KEYS
 import time
 
-WELLNESS_ANSWERS = {
-    'Answer 1': WELLNESS_CATEGORIES_CSS_SELECTORS['Mental Health'],
-    'Answer 2': WELLNESS_CATEGORIES_CSS_SELECTORS['Healthy eating'],
-    'Answer 3': WELLNESS_CATEGORIES_CSS_SELECTORS['Social well-being'],
-    'Answer 4': WELLNESS_CATEGORIES_CSS_SELECTORS['Exercise'],
-    'Answer 5': WELLNESS_CATEGORIES_CSS_SELECTORS['Putting my talents to work'],
-    'Answer 6': WELLNESS_CATEGORIES_CSS_SELECTORS['I don"t have a goal yet'],
-    'Answer 7': WELLNESS_CATEGORIES_CSS_SELECTORS['None of these']
+WELLNESS_ANSWERS_0002 = {
+    'Answer 1': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['Mental Health'],
+    'Answer 2': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['Healthy eating'],
+    'Answer 3': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['Social well-being'],
+    'Answer 4': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['Exercise'],
+    'Answer 5': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['Putting my talents to work'],
+    'Answer 6': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['I don"t have a goal yet'],
+    'Answer 7': WELLNESS_CATEGORIES_CSS_SELECTORS_0002['None of these']
+}
+
+WELLNESS_ANSWERS_0006 = {
+    'Answer 1': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['Not enough time'],
+    'Answer 2': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['Lack of support'],
+    'Answer 3': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['Can’t find the energy'],
+    'Answer 4': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['I’m not confident I can do it'],
+    'Answer 5': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['Need more information'],
+    'Answer 6': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['Cost is too much'],
+    'Answer 7': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['My barrier is not on this list'],
+    'Answer 8': WELLNESS_CATEGORIES_CSS_SELECTORS_0006['I don’t have any barriers right now']
 }
 
 
@@ -60,46 +71,42 @@ class WellnessUtils:
     def wellness_intro_passer(self):
         self.base_page.scroll_to_bottom()
 
-        time.sleep(1)
+        time.sleep(2)
 
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS['footer_next'])
 
     # this method passes a Wellness activity
 
-    def welness_activity_passer(self, welness_activity_answer):
+    def wellness_activity_passer_0002(self, wellness_activity_answer):
+
+        print('User started Wellness activity on 0002')
 
         self.base_element.send_user_input(input_data='This is an automated answer for the first question',
                                           input_field=CSS_SELECTORS["text_input"],
                                           wait_element=CSS_SELECTORS['footer_next'])
-        if welness_activity_answer in [WELLNESS_ANSWERS['Answer 3'], WELLNESS_ANSWERS['Answer 4'],
-                                       WELLNESS_ANSWERS['Answer 5'], WELLNESS_ANSWERS['Answer 6'],
-                                       WELLNESS_ANSWERS['Answer 7']]:
+        if wellness_activity_answer in [WELLNESS_ANSWERS_0002['Answer 3'], WELLNESS_ANSWERS_0002['Answer 4'],
+                                        WELLNESS_ANSWERS_0002['Answer 5'], WELLNESS_ANSWERS_0002['Answer 6'],
+                                        WELLNESS_ANSWERS_0002['Answer 7']]:
             self.base_page.scroll_to_bottom()
-            time.sleep(1)
-        self.base_element.button_click(button_selector=welness_activity_answer,
+            time.sleep(2)
+        self.base_element.button_click(button_selector=wellness_activity_answer,
                                        wait_element=CSS_SELECTORS['footer_next'])
         self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
                                        wait_element=CSS_SELECTORS['footer_next'])
+        time.sleep(2)
 
-    # already an instance of this in LifeMap Utils
+    def wellness_activity_passer_0006(self, wellness_activity_answer):
 
-    # def track_id_checker(self, memberpersonalgeneratedkey, expected_track_id_value):
-    #     user_object = self.connect.return_object(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-    #                                              db_name='stars-gl-core-dev',
-    #                                              collection_name='members',
-    #                                              key=DATABASE_KEYS['memberPersonalGeneratedKey'],
-    #                                              unique_value=memberpersonalgeneratedkey)
-    #     object_list = self.connect.return_objects(connection_string=DATABASE_CONNECTION_STRINGS['phi_db_dev'],
-    #                                               db_name='stars-gl-core-dev',
-    #                                               collection_name='usertracksprogresses',
-    #                                               key=DATABASE_KEYS['userId'],
-    #                                               unique_value=user_object['userId'])
-    #     i = 0
-    #     for x in object_list:
-    #         if x['trackId'] == expected_track_id_value:
-    #             i = i + 1
-    #             print('There is {} object/s where the Track ID matches the expected value. \n expected: {} \n found: {}'
-    #                   .format(i, expected_track_id_value, x['trackId']))
-    #     if i == 0:
-    #         print('\033[91m Track ID does not match expected value in any objects for the user. \033[0m')
+        print('User started Wellness activity on 0006')
+
+        if wellness_activity_answer in [WELLNESS_ANSWERS_0006['Answer 3'], WELLNESS_ANSWERS_0006['Answer 4'],
+                                        WELLNESS_ANSWERS_0006['Answer 5'], WELLNESS_ANSWERS_0006['Answer 6'],
+                                        WELLNESS_ANSWERS_0006['Answer 7'], WELLNESS_ANSWERS_0006['Answer 8']]:
+            self.base_page.scroll_to_bottom()
+            time.sleep(2)
+        self.base_element.button_click(button_selector=wellness_activity_answer,
+                                       wait_element=CSS_SELECTORS['footer_next'])
+        self.base_element.button_click(button_selector=CSS_SELECTORS['footer_next'],
+                                       wait_element=CSS_SELECTORS['footer_next'])
+        time.sleep(2)

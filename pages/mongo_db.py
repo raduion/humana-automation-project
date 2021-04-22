@@ -77,7 +77,6 @@ class Connect:
 
         client = Connect.get_connection(connection_string)
         try:
-            print('List of database names: {}'.format(client.list_database_names()))
             return client.list_database_names()
         except:
             print('List of database names could not be returned')
@@ -92,7 +91,6 @@ class Connect:
         my_db = client[db_name]
 
         try:
-            print('List of collection names: {}'.format(my_db.list_collection_names()))
             return my_db.list_collection_names()
         except:
             print('List of collection names could not be returned')
@@ -126,7 +124,6 @@ class Connect:
         my_db = client[db_name]
 
         try:
-            print('Document found: {}'.format(my_db[collection_name].find_one(record)))
             return my_db[collection_name].find_one(record)
         except:
             print('Document could not be returned')
@@ -141,7 +138,6 @@ class Connect:
             for item in list_of_objects:
                 if item[key] == unique_value:
                     my_item = item
-                    print('Object found: {}'.format(my_item))
                     return my_item
         except AttributeError:
             print('Object could not be returned')

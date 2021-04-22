@@ -1,16 +1,7 @@
 # this is a test template
 from pages.base_page import BasePage
 from pages.base_element import BaseElement
-from pages.locators import CSS_SELECTORS
-import os
-from pages.mongo_db import Connect, DATABASE_CONNECTION_STRINGS
-from pymongo import MongoClient
-import json
-import time
 import requests
-from pages.gmail.email_operations import EmailOperations
-
-from pages.sms_handler import SMSHandlers
 
 
 # ****** Test Title *****

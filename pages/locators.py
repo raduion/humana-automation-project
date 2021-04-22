@@ -40,7 +40,13 @@ CSS_SELECTORS = {
     "create_my_profile_button": "button[type='submit']",
 
     # this is the css selector used for the "Save and exit" header button
-    "header_save": "button[class='button header__save']"
+    "header_save": "button[class='button header__save']",
+
+    # this is the css selector used for the SMS tool header
+    'sms_tool_header': "h2[class='heading-section']",
+
+    # this is the css selector used for the SMS reply input field
+    'sms_reply': "input[type='text']"
 }
 CSS_SELECTORS_LIFEMAP_CARDS = {
     # these are the  css selectors used for activity cards
@@ -270,13 +276,24 @@ TYPE_4_GOALS = [CARDS_XPATHS["I Want to Be Active"], CARDS_XPATHS["I Want to Be 
                 CARDS_XPATHS["I Want to Be Successful"], CARDS_XPATHS["I Want to Feel More Capable"],
                 CARDS_XPATHS["I Want to Feel More Energetic"]]
 
-WELLNESS_CATEGORIES_CSS_SELECTORS = {
+WELLNESS_CATEGORIES_CSS_SELECTORS_0002 = {
     'Mental Health': "div[tabindex='2']",
     'Healthy eating': "div[tabindex='3']",
     'Social well-being': "div[tabindex='4']",
     'Exercise': "div[tabindex='5']",
     'Putting my talents to work': "div[tabindex='6']",
     'I don"t have a goal yet': "div[tabindex='7']",
-    'None of these': "div[tabindex='8']",
+    'None of these': "div[tabindex='8']"
+}
+
+WELLNESS_CATEGORIES_CSS_SELECTORS_0006 = {
+    'Not enough time': "div[tabindex='2']",
+    'Lack of support': "div[tabindex='3']",
+    'Can’t find the energy': "div[tabindex='4']",
+    'I’m not confident I can do it': "div[tabindex='5']",
+    'Need more information': "div[tabindex='6']",
+    'Cost is too much': "div[tabindex='7']",
+    'My barrier is not on this list': "div[tabindex='8']",
+    'I don’t have any barriers right now': "div[tabindex='9']"
 }
 

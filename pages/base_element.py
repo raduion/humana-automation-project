@@ -18,9 +18,10 @@ class BaseElement:
 
         try:
             assert text in text_displayed.text
-            print('The text displayed is: "{}"'.format(text))
+
         except:
-            print_error(message="There is a different text displayed: {}".format(text_displayed.text))
+            print_error(message="There is a different text displayed \n expected: {} \n current: {} "
+                        .format(text, text_displayed.text))
             raise
 
     # this method clicks on a button in the page
@@ -29,7 +30,6 @@ class BaseElement:
         try:
             button = self.browser.find_element_by_css_selector(button_selector)
             button.click()
-            print('\033[92m Button was successfully clicked: "{}"\033[0m'.format(button_selector))
         except:
             print_error(message='Button could not be clicked: "{}"'.format(button_selector))
 
@@ -46,7 +46,6 @@ class BaseElement:
                     dropdown_options[x] = Select(dropdown_options[x])
                     dropdown_options[x].select_by_index(index)
                     selected_answer = dropdown_options[x].first_selected_option
-                    print('\033[92m Option was selected: "{}"\033[0m'.format(selected_answer.text))
         except:
             print_error(message='"{}" option could not be selected'.format(selected_answer.text))
 
@@ -60,7 +59,6 @@ class BaseElement:
         try:
             self.browser.find_element_by_css_selector(option_selector).click()
             selected_option = self.browser.find_elements_by_css_selector(selected_option_selector)[index]
-            print('\033[92m List answer was selected: "{}"\033[0m'.format(selected_option.text))
             return selected_option.text
         except:
             print_error(message='List answer could not be selected: "{}"'.format(selected_option.text))
@@ -76,7 +74,6 @@ class BaseElement:
                 radio_option = self.browser.find_elements_by_css_selector(radio_selector)[x]
                 if radio_option.is_displayed():
                     radio_option.click()
-                    print('\033[92m All available radio options were selected. \033[0m')
         except:
             print_error(message='Radio options could not be selected.')
 
@@ -91,7 +88,6 @@ class BaseElement:
             radio_option = self.browser.find_elements_by_css_selector(radio_selector)[option_number]
             if radio_option.is_displayed():
                 radio_option.click()
-                print('\033[92m Option number {} was selected. \033[0m'.format(option_number))
         except AttributeError:
             print_error(message='Radio option could not be selected or does not exists.')
 
@@ -105,21 +101,18 @@ class BaseElement:
         try:
             month_selector = Select(self.browser.find_element_by_css_selector(month_selector))
             month_selector.select_by_index(month_index)
-            print('The selected DOB month is {}'.format(month_index))
         except:
             print_error(message='The DOB month could not be selected')
 
         try:
             day_selector = Select(self.browser.find_element_by_css_selector(day_selector))
             day_selector.select_by_index(day_index)
-            print('The selected DOB day is {}'.format(day_index))
         except:
             print_error(message='The DOB day could not be selected')
 
         try:
             year_selector = Select(self.browser.find_element_by_css_selector(year_selector))
             year_selector.select_by_index(year_index)
-            print('The selected DOB year is {}'.format(2002 - (year_index - 1)))
         except:
             print_error(message='The DOB year could not be selected')
 
@@ -134,7 +127,6 @@ class BaseElement:
             user_input.click()
             user_input.clear()
             user_input.send_keys(input_data)
-            print('The user input sent is: {}'.format(input_data))
         except:
             print_error(message='User input could not be sent')
 
@@ -149,7 +141,6 @@ class BaseElement:
             for x in range(0, len(checkbox)):
                 if checkbox[x].is_displayed():
                     checkbox[x].click()
-            print('All checkboxes were selected')
         except:
             print_error(message='Checkboxes could not be selected')
 
@@ -163,7 +154,6 @@ class BaseElement:
 
             actions = ActionChains(self.browser)
             actions.move_to_element(element_to_scroll).perform()
-            print('Page scrolled to element({})'.format(element_to_scroll))
         except:
             print_error(message='Page could not be scrolled')
 
@@ -173,7 +163,6 @@ class BaseElement:
         try:
             button = self.browser.find_element(By.XPATH, card)
             button.click()
-            print('\033[92m Button was successfully clicked: "{}"\033[0m'.format(card))
         except:
             print_error(message='Button could not be clicked: "{}"'.format(card))
 
@@ -206,5 +195,5 @@ class BaseElement:
 # this is a method that prints an error and also raise an exception to stop the execution of the test
 
 def print_error(message):
-    print('\033[91m {} \033[0m'.format(message))
+    print('\033[91m{} \033[0m'.format(message))
     raise

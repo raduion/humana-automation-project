@@ -63,7 +63,7 @@ def file_url():
 
 @pytest.fixture
 def report_path():
-    path = 'tests/reports/sleep-report.html'
+    path = 'tests/reports/sleep-report. '
 
     yield path
 
@@ -119,4 +119,4 @@ def browser(request, config_browser, config_wait_time):
     yield browser
 
     # For clean-up, quit the driver
-    browser.quit()
+    # browser.quit()

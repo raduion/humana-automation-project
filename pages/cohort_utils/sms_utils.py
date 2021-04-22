@@ -2,9 +2,20 @@ import requests
 from pages import base_page
 import re
 import urllib.request
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
+from pages.base_element import BaseElement
+from pages.base_page import BasePage
+from pages.locators import CSS_SELECTORS
 
 
-class SMSHandlers:
+class SMSUtils:
+    def __init__(self, browser):
+        self.browser = browser
+        self.base_element = BaseElement(browser)
+        self.base_page = BasePage(browser)
 
     # this method returns the message based on an index from the list of responses
     @staticmethod
@@ -50,5 +61,20 @@ class SMSHandlers:
         except:
             base_page.print_error(message='\033[91m Token could not be retrieved \033[0m')
 
+    def sms_tool_url_loader(self, phone_number):
+        self.base_page.load_url(subdomain='twilio-incoming-sms.',
+                                top_level_domain='message_list?', second_level_domain='herokuapp.com/',
+                                subdirectory='from_number=1', path=phone_number,
+                                wait_element=CSS_SELECTORS["sms_tool_header"])
 
+    def sms_reply(self, reply):
+        try:
+            user_input = self.browser.find_element_by_id("sms_reply_1")
+            user_input.click()
+            user_input.clear()
+            user_input.send_keys(reply)
+        except:
+            print('\033[91mUser input could not be sent\033[0m')
 
+        self.browser.find_element_by_id("sms_reply_1").send_keys(Keys.RETURN)
+        WebDriverWait(self.browser, 10).until(EC.element_to_be_clickable, "h2[class='heading-section']")
